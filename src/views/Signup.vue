@@ -29,8 +29,8 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(
           () => {
-            alert("You have successfully registered");
-            this.$router.replace("home");
+            alert("You have successfully registered. Please login in with your credentials.");
+            this.$router.replace("login");
           },
           function(err) {
             alert("An error occured: " + err.message);
