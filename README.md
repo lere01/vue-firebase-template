@@ -15,7 +15,7 @@ A simple login-logout SPA with firebase authentication
 * run `$ yarn serve`
 
 ## View Application Online
-* [visit site](https://).
+* [visit site](https://infallible-tesla-94d57f.netlify.app/).
 
 ## Project setup
 ```
