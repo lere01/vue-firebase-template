@@ -7,7 +7,7 @@
     <br />
     <button @click="signin">Login</button>
     <p>
-      You don't have an account yet?
+      You don't have an account yet? You can
       <router-link to="/sign-up">Sign up</router-link>
     </p>
   </div>

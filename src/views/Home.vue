@@ -1,17 +1,20 @@
 <template>
   <div class="home">
+    <div class="nav">
+      <button id="signout" @click="signOut">Sign Out</button>
+    </div>
+
     <fieldset>
-      <input type="number" placeholder="loan amount" v-model="loan" />
-      <input type="number" placeholder="period" v-model="time" />
+      <input type="text" placeholder="loan amount" v-model="loan" /><br />
+      <input type="text" placeholder="period" v-model="time" /><br />
       <input
-        type="number"
+        type="text"
         placeholder="% interest rate per year"
         v-model="rate"
-      />
+      /><br />
       <span id="result"></span>
       <button @click="payback">Calculate Payback</button>
     </fieldset>
-    <button @click="signOut">Sign Out</button>
   </div>
 </template>
 
@@ -48,3 +51,49 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.home {
+  margin: 100px auto;
+  max-width: 500px;
+  min-width: 300px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  box-shadow: 2px 3px 5px rgba(49, 45, 45, 0.6);
+  box-sizing: border-box;
+  border: none;
+}
+
+input {
+  margin: 10px 0;
+  width: 50%;
+  padding: 15px;
+  padding-bottom: 5px;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid #808080;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 14px;
+}
+
+button {
+  margin-top: 10px;
+  width: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+span {
+  display: block;
+  margin-top: 20px;
+  font-size: 24px;
+}
+</style>

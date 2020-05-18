@@ -1,8 +1,13 @@
 <template>
   <div class="sign-up">
-    <p>Let's create a new account!</p>
-    <input type="email" v-model="email" placeholder="Email" />
-    <input type="password" v-model="password" placeholder="password" />
+    <p>Register An Account!</p>
+    <input type="email" v-model="email" placeholder="Email" /><br />
+    <input type="password" v-model="password" placeholder="Password" /><br />
+    <input
+      type="password"
+      v-model="cpassword"
+      placeholder="Confirm Password"
+    /><br />
     <button @click="signUp">Sign Up</button>
     <span>
       Go back to
@@ -19,23 +24,28 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      cpassword: ""
     };
   },
   methods: {
     signUp: function() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(
-          () => {
-            alert("You have successfully registered. Please login in with your credentials.");
-            this.$router.replace("login");
-          },
-          function(err) {
-            alert("An error occured: " + err.message);
-          }
-        );
+      if (this.password === this.cpassword) {
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then(
+            () => {
+              alert(
+                "You have successfully registered. Please login in with your credentials."
+              );
+              this.$router.replace("login");
+            },
+            function(err) {
+              alert("An error occured: " + err.message);
+            }
+          );
+      } else alert("You have entered different passwords");
     }
   }
 };
